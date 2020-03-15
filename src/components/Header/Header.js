@@ -12,11 +12,11 @@ const Header = () => {
 
                 </li>
                 <li>
-                    <a href="/order">Order Review</a>
+                    <a href="/review">Order Review</a>
 
                 </li>
                 <li>
-                    <a href="/manage">Manage Inventory</a>
+                    <a href="/inventory">Manage Inventory</a>
 
                 </li>
             </ul>
