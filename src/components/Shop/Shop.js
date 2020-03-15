@@ -20,7 +20,7 @@ const Shop = () => {
             <div className="product-container">
 
                 {products.map(x =>
-                    <Product product={x} addProductCount={addProductCount}></Product>)}
+                    <Product product={x} addProductCount={addProductCount} showAddToCart={true}></Product>)}
 
             </div>
             <div className="cart-container">
