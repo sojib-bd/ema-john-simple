@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 
 const Cart = (props) => {
     const cart = props.cart;
     const total = cart.reduce((total, product) => total + product.price * product.quantity, 0);
-    console.log(typeof total)
+
     let shipping = 0;
     if (total > 35) {
         shipping = 0;
@@ -29,10 +29,7 @@ const Cart = (props) => {
             <p>Tax + VAT : {tax}</p>
             <p>Total Price: {digitFixing(total + shipping + tax)}</p>
             <br />
-            <Link to='/review'>
-                <button className='call-to-action'>Review Order</button>
-
-            </Link>
+            {props.children}
         </div>
     );
 };

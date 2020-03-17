@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import fakeData from '../../fakeData';
 import './Shop.css';
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
-import { addToDatabaseCart } from '../../utilities/databaseManager';
+import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
+import { Link } from 'react-router-dom';
+
 
 const Shop = () => {
     //console.log(fakeData)
@@ -11,9 +13,22 @@ const Shop = () => {
     const [products, setProduct] = useState(firstTen);
     const [cart, setCart] = useState([]);
 
+    useEffect(() => {
+        const saveCart = getDatabaseCart();
+        //console.log(saveCart);
+        const productKey = Object.keys(saveCart);
+        //console.log(productKey);
+        const cartProducts = productKey.map(key => {
+            const product = fakeData.find(y => y.key === key);
+            product.quantity = saveCart[key];
+            return product;
+        })
+        setCart(cartProducts);
+    }, [])
+
     const addProductCount = (product) => {
         //console.log(product);
-        console.log(cart)
+
         const sameProduct = cart.find(x => x.key === product.key);
         let count = 1;
         let newCart;
@@ -40,7 +55,12 @@ const Shop = () => {
 
             </div>
             <div className="cart-container">
-                <Cart cart={cart}></Cart>
+                <Cart cart={cart}>
+                    <Link to='/review'>
+                        <button className='call-to-action'>Review Order</button>
+                    </Link>
+
+                </Cart>
             </div>
         </div>
     );
