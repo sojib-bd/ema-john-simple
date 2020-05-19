@@ -34,7 +34,7 @@ const Shipment = () => {
             shipment: shipInfo,
             payment: payment
         };
-        fetch('http://localhost:4200/placeOrder', {
+        fetch('https://serene-reaches-66590.herokuapp.com/placeOrder', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

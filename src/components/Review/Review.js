@@ -25,7 +25,7 @@ const Review = (props) => {
         const saveCart = getDatabaseCart();
         const productKey = Object.keys(saveCart);
 
-        fetch('http://localhost:4200/getProductByKey', {
+        fetch('https://serene-reaches-66590.herokuapp.com/getProductByKey', {
             method: 'POST',
             body: JSON.stringify(productKey),
             headers: {
