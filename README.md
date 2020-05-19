@@ -1,6 +1,6 @@
 # ema-john-simple
 
-** Website = ** [ema-john-simple](https://ema-john-simple-b5a2a.firebaseapp.com/) 
+**Website =** [ema-john-simple](https://ema-john-simple-b5a2a.firebaseapp.com/) 
 
 1. Simple e-commerce website
 2. Build in React.
